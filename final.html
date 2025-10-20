@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final - Bird Box Caça ao Tesouro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/final.css">
+</head>
+
+<body class="bg-dark text-light">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;"></div>
+            <h3>Carregando Desfecho Final...</h3>
+            <p>Preparando sua recompensa</p>
+        </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Cabeçalho Vitorioso -->
+                <div class="text-center mb-5">
+                    <div class="trophy-animation mb-3">
+                        <i class="fas fa-trophy fa-4x text-warning"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold text-warning">🎉 MISSÃO CUMPRIDA!</h1>
+                    <p class="lead">Você chegou ao final da Trilha <span id="trilhaNumeroFinal"
+                            class="badge bg-warning text-dark fs-4">0</span></p>
+                </div>
+
+                <div class="row">
+                    <!-- Coluna das Frases Coletadas -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-secondary border-light h-100">
+                            <div class="card-header bg-dark">
+                                <h4 class="mb-0">
+                                    <i class="fas fa-scroll me-2"></i>
+                                    Frases Coletadas na Ordem Correta
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Mostre esta sequência para a bibliotecária validar sua vitória!
+                                </div>
+
+                                <div id="frasesColetadas" class="frases-container">
+                                    <!-- Frases serão inseridas aqui em ordem numérica -->
+                                </div>
+
+                                <div class="mt-3 p-3 bg-dark rounded">
+                                    <small class="text-muted">
+                                        <i class="fas fa-lightbulb me-1"></i>
+                                        <strong>Dica:</strong> Copie e cole as frases na ordem acima no campo ao lado
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna da Validação -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card bg-secondary border-light h-100">
+                            <div class="card-header bg-dark">
+                                <h4 class="mb-0">
+                                    <i class="fas fa-check-double me-2"></i>
+                                    Validação Final
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <label for="respostaFinal" class="form-label fw-bold">
+                                        <i class="fas fa-keyboard me-2"></i>
+                                        Digite a sequência completa:
+                                    </label>
+                                    <textarea id="respostaFinal" class="form-control bg-dark text-light" rows="6"
+                                        placeholder="Cole aqui todas as 5 frases na ordem correta (1 a 5)..."></textarea>
+                                    <div class="form-text text-light">
+                                        Digite exatamente como estão escritas acima, separadas por espaços
+                                    </div>
+                                </div>
+
+                                <!-- BOTÃO DE PREENCHIMENTO AUTOMÁTICO -->
+                                <div class="mb-3">
+                                    <button id="btnPreencherAuto" class="btn btn-outline-info btn-sm">
+                                        <i class="fas fa-magic me-1"></i>
+                                        Preencher Automaticamente
+                                    </button>
+                                    <small class="text-muted ms-2">Preenche com as frases na ordem correta</small>
+                                </div>
+
+                                <button id="btnVerificarFinal" class="btn btn-success btn-lg w-100 mb-3">
+                                    <i class="fas fa-trophy me-2"></i>
+                                    VERIFICAR CONQUISTA
+                                </button>
+
+                                <div id="feedbackFinal">
+                                    <!-- Feedback será inserido aqui -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área de Recompensa -->
+                <div id="areaRecompensa" class="card bg-success mt-4 d-none">
+                    <div class="card-body text-center">
+                        <h3 class="text-white mb-3">
+                            <i class="fas fa-star me-2"></i>
+                            PARABÉNS, CAÇADOR DE TESOUROS!
+                        </h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="p-3">
+                                    <i class="fas fa-medal fa-3x text-warning mb-2"></i>
+                                    <h5>Desafio Completo</h5>
+                                    <p>Você dominou a arte da caça ao tesouro</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3">
+                                    <i class="fas fa-book fa-3x text-warning mb-2"></i>
+                                    <h5>Conhecimento Adquirido</h5>
+                                    <p>5 livros clássicos explorados</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3">
+                                    <i class="fas fa-gem fa-3x text-warning mb-2"></i>
+                                    <h5>Prêmio Especial</h5>
+                                    <p>Mostre esta tela para receber sua recompensa!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="text-center mt-5">
+                    <div class="btn-group" role="group">
+                        <button id="btnVoltarInicioFinal" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-home me-2"></i>
+                            Voltar ao Início
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/trilhas.js"></script>
+    <script src="./js/final.js"></script>
+</body>
+
+</html>

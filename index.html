@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bird Box - Caça ao Tesouro Literário</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body class="bg-gradient">
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-content">
+      <div class="bird-box-logo">
+        <i class="fas fa-dove"></i>
+        <h1>Bird Box</h1>
+      </div>
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p class="mt-3">Inicializando aventura...</p>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <i class="fas fa-dove me-2 text-warning"></i>
+        <span class="fw-bold">Bird Box</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#como-jogar"><i class="fas fa-gamepad me-1"></i>Como Jogar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#regras"><i class="fas fa-book me-1"></i>Regras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#infoModal">
+              <i class="fas fa-info-circle me-1"></i>Sobre
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <div class="hero-content">
+            <div class="main-logo mb-4">
+              <i class="fas fa-dove"></i>
+              <h1 class="display-3 fw-bold mb-3">Bird Box</h1>
+            </div>
+            <h2 class="h3 text-warning mb-4">Caça ao Tesouro Literário</h2>
+            <p class="lead mb-5">Enfrente o desconhecido, encontre respostas nos livros e sobreviva à escuridão. Sua
+              aventura literária está prestes a começar!</p>
+
+            <!-- Main CTA Card -->
+            <div class="main-cta-card">
+              <div class="cta-header">
+                <i class="fas fa-random"></i>
+                <h4 class="mb-0">Trilha Sorteada</h4>
+              </div>
+              <div class="cta-body">
+                <p class="mb-4">Cada jogador recebe uma trilha única sorteada aleatoriamente. Sua missão é completar
+                  todas as pistas!</p>
+
+                <div id="jogoExistente" class="alert alert-warning d-none">
+                  <div class="d-flex align-items-center">
+                    <i class="fas fa-play-circle me-2"></i>
+                    <div class="flex-grow-1">
+                      <strong>Jogo em Andamento</strong>
+                      <div class="small">Trilha <span id="trilhaAtual">X</span> - Pista <span id="pistaAtual">Y</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-2 d-flex gap-2">
+                    <button id="btnContinuar" class="btn btn-warning btn-sm flex-fill">
+                      <i class="fas fa-play me-1"></i>Continuar
+                    </button>
+                    <button id="btnNovoJogo" class="btn btn-outline-warning btn-sm">
+                      <i class="fas fa-redo me-1"></i>Nova
+                    </button>
+                  </div>
+                </div>
+
+                <button id="btnIniciar" class="btn btn-warning btn-lg w-100 py-3">
+                  <i class="fas fa-rocket me-2"></i>
+                  <span class="btn-text">Iniciar Nova Aventura</span>
+                  <div class="btn-loading d-none">
+                    <span class="spinner-border spinner-border-sm me-2"></span>
+                    Sorteando Trilha...
+                  </div>
+                </button>
+
+                <div class="mt-3">
+                  <small class="text-muted">
+                    <i class="fas fa-keyboard me-1"></i>
+                    Pressione <kbd>ENTER</kbd> para iniciar rapidamente
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="como-jogar" class="features-section py-5">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title mb-4">Como a Aventura Funciona</h2>
+          <p class="lead">Siga estas etapas para completar sua missão literária</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-random"></i>
+            </div>
+            <h4>1. Trilha Sorteada</h4>
+            <p>Receba uma trilha temática aleatória com 10 pistas desafiadoras</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h4>2. Busca nos Livros</h4>
+            <p>Cada pista indica um livro específico e onde encontrar a resposta na biblioteca</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <h4>3. Frase Final</h4>
+            <p>Colete todas as palavras-chave e forme a frase final para vencer o jogo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rules Section -->
+  <section id="regras" class="rules-section py-5 bg-darkblue">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <h2 class="section-title mb-4">Regras do Desafio</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="rule-item">
+            <div class="rule-number">01</div>
+            <div class="rule-content">
+              <h5>Respostas nos Livros</h5>
+              <p>Todas as respostas estão localizadas em livros físicos da biblioteca, seguindo as indicações de
+                localização fornecidas</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="rule-item">
+            <div class="rule-number">02</div>
+            <div class="rule-content">
+              <h5>Palavras-chave</h5>
+              <p>Anote cada palavra-chave encontrada - elas formarão a frase final necessária para completar a trilha
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="rule-item">
+            <div class="rule-number">03</div>
+            <div class="rule-content">
+              <h5>Progresso Salvo</h5>
+              <p>Seu progresso é automaticamente salvo. Você pode continuar de onde parou a qualquer momento</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="rule-item">
+            <div class="rule-number">04</div>
+            <div class="rule-content">
+              <h5>Trilha Aleatória</h5>
+              <p>Cada jogador recebe uma trilha diferente sorteada aleatoriamente entre 5 temas únicos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark">
+    <div class="container py-4">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-dove text-warning me-2"></i>
+            <span class="text-muted">Bird Box - Caça ao Tesouro Literário</span>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <small class="text-muted">Desenvolvido para aventuras literárias memoráveis</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Info Modal -->
+  <div class="modal fade" id="infoModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-darkblue">
+        <div class="modal-header border-warning">
+          <h5 class="modal-title">
+            <i class="fas fa-info-circle text-warning me-2"></i>
+            Sobre o Bird Box
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Bird Box é um jogo de caça ao tesouro literário inspirado na atmosfera de suspense e descoberta.</p>
+          <p><strong>Objetivo:</strong> Encontrar respostas em livros físicos da biblioteca e completar frases
+            temáticas.</p>
+          <p><strong>Como jogar:</strong> Sorteie uma trilha, siga as pistas pelos livros e colete palavras para formar
+            a frase final.</p>
+          <div class="alert alert-info mt-3">
+            <i class="fas fa-lightbulb me-2"></i>
+            <strong>Dica:</strong> Preste atenção nas localizações dos livros e nas instruções específicas de cada
+            pista.
+          </div>
+        </div>
+        <div class="modal-footer border-warning">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Entendi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Elements -->
+  <audio id="ambienteAudio" loop>
+    <source src="sounds/ambiente.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="clickSound">
+    <source src="sounds/click.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/trilhas.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
