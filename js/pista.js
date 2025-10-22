@@ -172,18 +172,34 @@ function atualizarInterface() {
   elementos.progressoAtual.textContent = Math.round(progresso);
   elementos.progressBar.style.width = `${progresso}%`;
 
-  // Atualizar conteúdo da pista
+  // Atualizar conteúdo da pista com livro e instruções já na pergunta
   elementos.textoPista.textContent = pista.texto;
-  elementos.perguntaPista.textContent = pista.pergunta;
+
+  // Pergunta exibida junto com livro e instruções (mas sem a localização ainda)
+  elementos.perguntaPista.innerHTML = `
+    <div class="pergunta-texto mb-2">
+      <strong>${pista.pergunta}</strong>
+    </div>
+    <div class="info-extra text-muted small">
+      <i class="fas fa-book me-1"></i> <strong>Livro:</strong> ${
+        pista.livro || "-"
+      }<br>
+      <i class="fas fa-info-circle me-1"></i> <strong>Instruções:</strong> ${
+        pista.instrucoes || "-"
+      }
+    </div>
+  `;
 
   // Atualizar contador de palavras coletadas
   elementos.palavrasColetadasCount.textContent =
     estadoAtual.palavrasChave.length;
 
-  // Limpar campos
+  // ⚠️ Esconde o card de localização até o jogador acertar a resposta
+  elementos.localizacaoCard.classList.add("d-none");
+
+  // Limpar campos de resposta e feedback
   elementos.respostaInput.value = "";
   elementos.feedbackArea.innerHTML = "";
-  elementos.localizacaoCard.classList.add("d-none");
 
   // Atualizar palavras coletadas
   atualizarPalavrasColetadas();
