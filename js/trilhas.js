@@ -1,695 +1,826 @@
 // Sistema de Trilhas - Bird Box Caça ao Tesouro
 console.log("📚 Carregando sistema de trilhas...");
 
-// 10 Trilhas temáticas com 5 perguntas cada
+// 10 Trilhas temáticas com 5 perguntas cada (50 livros)
+// Gerado para: estilo "caça ao tesouro" — livro: dica autor/ano/gênero; localizacao: dica de capítulo; instrucoes: dica do assunto
 const TRILHAS = {
-  // TRILHA 1 - SOBREVIVÊNCIA
   1: [
     {
       id: 1,
       texto:
-        "No mundo cego de Bird Box, a sobrevivência depende dos outros sentidos. Malorie aprende a confiar nos sons ao seu redor. Encontre no livro 'O Iluminado' a frase sobre o medo que paralisa.",
-      pergunta: "Qual frase descreve o medo incapacitante?",
+        "Encontre no acervo o livro que discute tecnologia aplicada à empresa. Procure a afirmação chave sobre inovação organizacional.",
+      pergunta: "Qual frase descreve a importância da tecnologia nas empresas?",
       respostaCorreta: [
-        "medo morte em vida",
-        "medo paralisa",
-        "medo incapacita",
+        "tecnologia melhora processos",
+        "tecnologia impulsiona a empresa",
+        "melhora processos e eficiencia",
       ],
-      livro: "O Iluminado",
-      localizacao: "Seção Terror - Prateleira T12",
-      instrucoes: "Procure no capítulo 15 a reflexão sobre o medo.",
-      fraseParaAnotar: "O MEDO É A MORTE EM VIDA",
+      livro:
+        "Informática na empresa — Aldemar de Araújo Santos (guia técnico/prático)",
+      localizacao: "Capítulo 2: Sistemas de Informação nas Organizações",
+      instrucoes:
+        "Procure a passagem que relaciona tecnologia com eficiência operacional.",
+      fraseParaAnotar: "TECNOLOGIA MELHORA PROCESSOS",
     },
     {
       id: 2,
       texto:
-        "Os pássaros são os guardiões em Bird Box. Sua agitação alerta para perigos invisíveis. Encontre em 'A Revolução dos Bichos' o princípio dos animais.",
-      pergunta: "Qual o lema da revolução animal?",
+        "Localize o livro sobre IA aplicada. Busque no capítulo que explica aprendizagem de máquina aplicada a negócios.",
+      pergunta: "Qual conceito descreve máquinas aprendendo com dados?",
       respostaCorreta: [
-        "quatro pernas bom",
-        "duas pernas ruim",
-        "quatro pernas bom duas pernas ruim",
+        "aprendizado de maquina",
+        "machine learning",
+        "aprender com dados",
       ],
-      livro: "A Revolução dos Bichos",
-      localizacao: "Seção Clássicos - Prateleira C45",
-      instrucoes: "Procure no capítulo 1 os mandamentos dos animais.",
-      fraseParaAnotar: "QUATRO PERNAS BOM DUAS PERNAS RUIM",
+      livro:
+        "Inteligência Artificial — Cairo L. Jr e Takashi Yoneyama (técnico, ~2018)",
+      localizacao: "Capítulo 4: Aprendizado de Máquina",
+      instrucoes:
+        "Procure a definição do conceito básico de aprendizado automático.",
+      fraseParaAnotar: "APRENDIZADO DE MÁQUINA",
     },
     {
       id: 3,
       texto:
-        "A jornada pelo rio representa a única esperança. Encontre em 'As Crônicas de Nárnia' o conselho sobre coragem.",
-      pergunta: "O que Aslam diz sobre momentos seguros?",
+        "Procure o livro que trata de conduta empresarial. No capítulo sobre valores, há uma frase curta sobre ética.",
+      pergunta: "Qual frase resume a ética organizacional?",
       respostaCorreta: [
-        "não há tempo seguro",
-        "tempo seguro não existe",
-        "sempre perigo",
+        "ética é responsabilidade",
+        "valores norteiam acao",
+        "etica responsabilidade social",
       ],
-      livro: "As Crônicas de Nárnia",
-      localizacao: "Seção Infantojuvenil - Prateleira IJ23",
+      livro:
+        "Ética nas organizações — Elizete Passos (texto acadêmico/prático)",
+      localizacao: "Capítulo 1: Valores e Conduta",
       instrucoes:
-        "Procure no capítulo 'O Leão, a Feiticeira e o Guarda-Roupa'.",
-      fraseParaAnotar: "NÃO HÁ TEMPO SEGURO",
+        "Busque a passagem que define ética nas decisões empresariais.",
+      fraseParaAnotar: "ÉTICA É RESPONSABILIDADE",
     },
     {
       id: 4,
       texto:
-        "As vendas protegem da escuridão mortal. Encontre em 'Dom Quixote' a visão distorcida da realidade.",
-      pergunta: "O que Dom Quixote vê nos moinhos?",
+        "Encontre o livro que analisa comportamento e mudança. No capítulo de liderança há uma metáfora sobre 'queijo'.",
+      pergunta: "O que simboliza o 'queijo' no contexto do livro?",
       respostaCorreta: [
-        "gigantes perigosos",
-        "moinhos são gigantes",
-        "gigantes ameaçadores",
+        "mudanca oportunidade",
+        "oportunidade cambiamento",
+        "adaptacao novidade",
       ],
-      livro: "Dom Quixote",
-      localizacao: "Seção Clássicos - Prateleira C18",
-      instrucoes: "Procure no primeiro capítulo a cena dos moinhos.",
-      fraseParaAnotar: "GIGANTES PERIGOSOS",
+      livro:
+        "Eu sei quem tem seu queijo — Dr. Montgomery Lee, Ph.D (autoajuda/comportamento)",
+      localizacao: "Capítulo 3: Como lidar com mudanças",
+      instrucoes:
+        "A dica refere-se ao que o 'queijo' representa simbolicamente.",
+      fraseParaAnotar: "O QUEIJO REPRESENTA OPORTUNIDADE",
     },
     {
       id: 5,
       texto:
-        "A obsessão pode ser tão perigosa quanto a escuridão. Encontre em 'Moby Dick' a famosa introdução.",
-      pergunta: "Como começa Moby Dick?",
+        "Procure o texto que aborda qualidade em processos. No capítulo sobre controle estatístico tem uma máxima sobre melhoria contínua.",
+      pergunta: "Qual frase define melhoria contínua?",
       respostaCorreta: [
-        "chama-me ismael",
-        "me chamem ismael",
-        "ismael narrador",
+        "melhoria continua processo",
+        "busca constante excelencia",
+        "aperfeicoamento continuo",
       ],
-      livro: "Moby Dick",
-      localizacao: "Seção Aventura - Prateleira A89",
-      instrucoes: "A frase está na primeira página do livro.",
-      fraseParaAnotar: "CHAMA-ME ISMAEL",
+      livro:
+        "Gestão de qualidade — Luiz César Ribeiro Carpinetti (gestão/qualidade)",
+      localizacao: "Capítulo 6: Melhoria Contínua e Controle",
+      instrucoes: "Busque a sentença que sintetiza a filosofia da qualidade.",
+      fraseParaAnotar: "MELHORIA CONTÍNUA DO PROCESSO",
     },
   ],
 
-  // TRILHA 2 - CORAGEM
   2: [
     {
       id: 1,
       texto:
-        "Enfrentar o desconhecido exige coragem. Encontre em 'Orgulho e Preconceito' a verdade universal.",
-      pergunta: "Qual a famosa primeira frase?",
+        "Encontre o livro que combina qualidade e inovação em serviços. No capítulo sobre eficiência há um ensinamento curto.",
+      pergunta: "Qual frase sintetiza eficiência em serviços?",
       respostaCorreta: [
-        "verdade universalmente reconhecida",
-        "verdade universal",
-        "homem solteiro fortuna",
+        "clientes satisfeitos fidelizam",
+        "satisfacao gera fidelidade",
+        "servico gera fidelidade",
       ],
-      livro: "Orgulho e Preconceito",
-      localizacao: "Seção Romance - Prateleira R12",
-      instrucoes: "A frase está na abertura do livro.",
-      fraseParaAnotar: "VERDADE UNIVERSALMENTE RECONHECIDA",
+      livro:
+        "Quem comeu o meu hamburguer? — Subir Chowdhury (qualidade/serviço)",
+      localizacao: "Capítulo 2: A experiência do cliente",
+      instrucoes:
+        "Procure a afirmação que liga qualidade a fidelização do cliente.",
+      fraseParaAnotar: "CLIENTES SATISFEITOS FIDELIZAM",
     },
     {
       id: 2,
       texto:
-        "A solidão testa a resistência humana. Encontre em 'Robinson Crusoé' a situação inicial.",
-      pergunta: "Como Robinson se descreve?",
+        "Procure autora que fala de gestão de pessoas. No capítulo sobre recrutamento há uma linha sobre encontrar talentos.",
+      pergunta: "O que se diz sobre contratar bons profissionais?",
       respostaCorreta: [
-        "naufrago sozinho ilha",
-        "sozinho ilha deserta",
-        "sobrevivente naufrágio",
+        "contrate talento certo",
+        "pessoas certas fazem diferenca",
+        "talento e ajuste cultural",
       ],
-      livro: "Robinson Crusoé",
-      localizacao: "Seção Aventura - Prateleira A34",
-      instrucoes: "Procure no diário do capítulo 5.",
-      fraseParaAnotar: "NAUFRAGO SOZINHO NA ILHA",
+      livro:
+        "Gestão de pessoas nas organizações — Sylvia Constant Vergara (gestão de RH)",
+      localizacao: "Capítulo 4: Recrutamento e Seleção",
+      instrucoes: "Procure a recomendação prática sobre contratação.",
+      fraseParaAnotar: "PESSOAS CERTAS FAZEM DIFERENÇA",
     },
     {
       id: 3,
       texto:
-        "Aventuras exigem sair da zona de conforto. Encontre em 'O Hobbit' o convite de Gandalf.",
-      pergunta: "O que Gandalf oferece a Bilbo?",
+        "Encontre a obra sobre tendências e futuro. No capítulo central há uma previsão sobre estilos de liderança.",
+      pergunta: "Que característica o autor indica para líderes do futuro?",
       respostaCorreta: [
-        "boas aventuras",
-        "aventura emocionante",
-        "jornada emocionante",
+        "visao tendencia global",
+        "pensamento estrategico",
+        "lideranca visionaria",
       ],
-      livro: "O Hobbit",
-      localizacao: "Seção Fantasia - Prateleira F56",
-      instrucoes: "Procure no primeiro capítulo a conversa inicial.",
-      fraseParaAnotar: "QUER BOAS AVENTURAS",
+      livro: "O líder do futuro — John Naisbitt (futurologia/gestão)",
+      localizacao: "Capítulo 1: Tendências e Liderança",
+      instrucoes:
+        "Procure a frase que descreve a habilidade-chave do líder moderno.",
+      fraseParaAnotar: "LÍDERES DO FUTURO SÃO VISIONÁRIOS",
     },
     {
       id: 4,
       texto:
-        "Enfrentar o mal requer coragem. Encontre em 'Drácula' o convite sinistro.",
-      pergunta: "Como Drácula recebe Harker?",
-      respostaCorreta: ["entre livremente", "goze da paz", "bem-vindo castelo"],
-      livro: "Drácula",
-      localizacao: "Seção Terror - Prateleira T89",
-      instrucoes: "Procure na chegada ao castelo no capítulo 2.",
-      fraseParaAnotar: "ENTRE LIVREMENTE E GOZE DA PAZ",
+        "Busque o livro que fala sobre cultura empresarial e heróis do negócio. No capítulo de cases está uma frase sobre equipe.",
+      pergunta: "O que são os 'verdadeiros heróis' segundo o livro?",
+      respostaCorreta: [
+        "equipes executivas",
+        "colaboradores cotidiano",
+        "pessoas do dia a dia",
+      ],
+      livro:
+        "Os verdadeiros heróis de um negócio — Bill Fromme e Len Schlesinger (gestão/casos)",
+      localizacao: "Capítulo 5: Histórias de Sucesso",
+      instrucoes: "Aponte a frase que valoriza o time operacional.",
+      fraseParaAnotar: "OS VERDADEIROS HERÓIS SÃO A EQUIPE",
     },
     {
       id: 5,
       texto:
-        "O convite para a transformação. Encontre em 'A Cabana' o chamado misterioso.",
-      pergunta: "O que Mack recebe?",
-      respostaCorreta: ["convite cabana", "carta cabana", "encontro cabana"],
-      livro: "A Cabana",
-      localizacao: "Seção Drama - Prateleira D23",
-      instrucoes: "Procure no início do livro o convite.",
-      fraseParaAnotar: "CONVITE PARA A CABANA",
+        "Encontre o autor que trata de sonhos e resiliência. No capítulo motivacional há uma frase central sobre persistir.",
+      pergunta: "Qual a mensagem sobre persistência?",
+      respostaCorreta: [
+        "nunca desista sonhos",
+        "persistencia conquista objetivos",
+        "siga em frente sempre",
+      ],
+      livro:
+        "Nunca desista dos seus sonhos — Augusto Cury (autoajuda/psicologia)",
+      localizacao: "Capítulo 7: Persistência e Resiliência",
+      instrucoes: "Procure a frase motivacional que incentiva a não desistir.",
+      fraseParaAnotar: "NUNCA DESISTA DOS SEUS SONHOS",
     },
   ],
 
-  // TRILHA 3 - ESPERANÇA
   3: [
     {
       id: 1,
       texto:
-        "Proteger a inocência em tempos sombrios. Encontre em 'O Apanhador no Campo de Centeio' o desejo de Holden.",
-      pergunta: "O que Holden quer ser?",
+        "Localize o livro sobre influência e desenvolvimento pessoal. No capítulo sobre comunicação há uma recomendação prática.",
+      pergunta: "Qual ação o autor recomenda para influenciar pessoas?",
       respostaCorreta: [
-        "apanhador campo centeio",
-        "salvar crianças",
-        "protetor inocência",
+        "escutar antes falar",
+        "entender para influenciar",
+        "escuta ativa",
       ],
-      livro: "O Apanhador no Campo de Centeio",
-      localizacao: "Seção Americana - Prateleira LA78",
-      instrucoes: "Procure no capítulo 22 a explicação.",
-      fraseParaAnotar: "APANHADOR NO CAMPO DE CENTEIO",
+      livro:
+        "Decifre e influencie Pessoas — Paulo Vieira e Deibson Silva (autoajuda/prática)",
+      localizacao: "Capítulo 3: Comunicação e Influência",
+      instrucoes: "Procure a dica prática sobre como influenciar com empatia.",
+      fraseParaAnotar: "ESCOUTE PARA INFLUENCIAR",
     },
     {
       id: 2,
       texto:
-        "A esperança contra a censura. Encontre em 'Fahrenheit 451' o símbolo da repressão.",
-      pergunta: "A que temperatura o papel queima?",
-      respostaCorreta: ["fahrenheit 451", "451 graus", "queima livros"],
-      livro: "Fahrenheit 451",
-      localizacao: "Seção Ficção - Prateleira FC23",
-      instrucoes: "A informação está no título.",
-      fraseParaAnotar: "FAHRENHEIT 451",
+        "Encontre o clássico espiritual que fala sobre felicidade. No capítulo sobre prática diária há uma síntese.",
+      pergunta: "Qual conceito resume a arte da felicidade?",
+      respostaCorreta: [
+        "felicidade pratica diaria",
+        "felicidade estado interno",
+        "pratica e felicidade",
+      ],
+      livro: "A arte da felicidade — Dalai-Lama (espiritualidade/psicologia)",
+      localizacao: "Capítulo 6: Práticas para a mente",
+      instrucoes: "Procure a frase sobre felicidade como prática interna.",
+      fraseParaAnotar: "A FELICIDADE É UMA PRÁTICA",
     },
     {
       id: 3,
       texto:
-        "A redenção é possível para todos. Encontre em 'Os Miseráveis' o gesto do bispo.",
-      pergunta: "O que o bispo faz por Valjean?",
-      respostaCorreta: ["comprou alma deus", "redenção alma", "salvação"],
-      livro: "Os Miseráveis",
-      localizacao: "Seção Clássicos - Prateleira C89",
-      instrucoes: "Procure no encontro com o bispo.",
-      fraseParaAnotar: "COMPROU SUA ALMA PARA DEUS",
+        "Procure o livro ilustrado sobre mulheres cientistas. No final há uma linha que celebra cientistas pioneiras.",
+      pergunta: "O que o autor afirma sobre cientistas citadas?",
+      respostaCorreta: [
+        "mulheres inovadoras",
+        "pioneiras da ciencia",
+        "cientistas inspiradoras",
+      ],
+      livro:
+        "As cientistas — Rachel Ignotofsky (ilustrado/divulgação científica)",
+      localizacao: "Seção de biografias (último capítulo)",
+      instrucoes:
+        "Busque a frase que celebra a contribuição feminina à ciência.",
+      fraseParaAnotar: "MULHERES PIONEIROS NA CIÊNCIA",
     },
     {
       id: 4,
       texto:
-        "A esperança em uma sociedade melhor. Encontre em 'Admirável Mundo Novo' os pilares sociais.",
-      pergunta: "Qual o lema da sociedade?",
+        "Encontre o best-seller sobre lei da atração. No capítulo sobre visualização há uma recomendação direta.",
+      pergunta: "O que o autor diz sobre visualizar objetivos?",
       respostaCorreta: [
-        "comunidade identidade estabilidade",
-        "sociedade perfeita",
-        "mundo novo",
+        "visualize com clareza",
+        "clareza atrai resultados",
+        "foco atrai sucesso",
       ],
-      livro: "Admirável Mundo Novo",
-      localizacao: "Seção Ficção - Prateleira FI45",
-      instrucoes: "Procure no primeiro capítulo.",
-      fraseParaAnotar: "COMUNIDADE IDENTIDADE ESTABILIDADE",
+      livro: "O segredo — Michael J. Losier (autoajuda/lei da atração)",
+      localizacao: "Capítulo 2: A prática da visualização",
+      instrucoes: "Procure a instrução sobre imaginar resultados desejados.",
+      fraseParaAnotar: "VISUALIZE COM CLAREZA",
     },
     {
       id: 5,
       texto:
-        "O amor como identidade. Encontre em 'O Morro dos Ventos Uivantes' a declaração de Catherine.",
-      pergunta: "O que Catherine diz sobre Heathcliff?",
-      respostaCorreta: ["sou heathcliff", "alma mesma", "identidade amor"],
-      livro: "O Morro dos Ventos Uivantes",
-      localizacao: "Seção Romance - Prateleira R56",
-      instrucoes: "Procure no capítulo 9 a declaração.",
-      fraseParaAnotar: "EU SOU HEATHCLIFF",
+        "Busque a obra que contrapõe liderança e serviço. No capítulo sobre atitude há uma metáfora sobre 'faxina'.",
+      pergunta: "Que lição o autor dá sobre serviço e liderança?",
+      respostaCorreta: [
+        "liderar servindo",
+        "humildade na liderança",
+        "servico e liderança",
+      ],
+      livro:
+        "O faxineiro e o executivo — Todd Hopkins e Ray Hibert (liderança/prática)",
+      localizacao: "Capítulo 4: Liderar com humildade",
+      instrucoes: "Procure a máxima que liga serviço e liderança.",
+      fraseParaAnotar: "LIDERAR É SERVIR",
     },
   ],
 
-  // TRILHA 4 - MISTÉRIO
   4: [
     {
       id: 1,
       texto:
-        "O mistério do tesouro perdido. Encontre em 'O Código Da Vinci' a busca inicial.",
-      pergunta: "O que está escondido sob o Louvre?",
+        "Localize o livro que fala de desapego. No capítulo sobre relacionamentos há uma frase prática para seguir em frente.",
+      pergunta: "Qual conselho o autor dá sobre desapegar?",
       respostaCorreta: [
-        "segredo milenar",
-        "tesouro secreto",
-        "mistério antigo",
+        "aceitar seguir em frente",
+        "nao se apega segue",
+        "deixar ir e seguir",
       ],
-      livro: "O Código Da Vinci",
-      localizacao: "Seção Suspense - Prateleira S34",
-      instrucoes: "Procure no capítulo 4 a descoberta.",
-      fraseParaAnotar: "SEGREDO MILENAR",
+      livro: "Não se apega, não — Isabela Freitas (autoajuda/jovem adulto)",
+      localizacao: "Capítulo 5: Superando laços",
+      instrucoes: "Procure a orientação sobre encerrar ciclos afetivos.",
+      fraseParaAnotar: "NÃO SE APEGA, SIGA EM FRENTE",
     },
     {
       id: 2,
       texto:
-        "O enigma da identidade. Encontre em 'O Retrato de Dorian Gray' o pacto.",
-      pergunta: "O que Dorian deseja?",
+        "Encontre o segundo volume da autora com conselhos mais práticos. No capítulo sobre autovalor há uma dica curta.",
+      pergunta: "Que orientação a autora repete sobre não se iludir?",
       respostaCorreta: [
-        "eterna juventude",
-        "juventude eterna",
-        "nunca envelhecer",
+        "preserve seu valor",
+        "conheca seus limites",
+        "nao se iluda mantenha valor",
       ],
-      livro: "O Retrato de Dorian Gray",
-      localizacao: "Seção Clássicos - Prateleira C67",
-      instrucoes: "Procure no capítulo 2 o desejo.",
-      fraseParaAnotar: "ETERNA JUVENTUDE",
+      livro: "Não se iluda, não — Isabela Freitas (continuação/prático)",
+      localizacao: "Capítulo 3: Valor pessoal",
+      instrucoes: "Procure a frase que recomenda proteger sua autoestima.",
+      fraseParaAnotar: "PRESERVE SEU VALOR",
     },
     {
       id: 3,
       texto:
-        "O mistério do assassinato. Encontre em 'Assassinato no Expresso Oriente' a pergunta crucial.",
-      pergunta: "Quem matou Ratchett?",
-      respostaCorreta: ["todos mataram", "culpa coletiva", "todos culpados"],
-      livro: "Assassinato no Expresso Oriente",
-      localizacao: "Seção Policial - Prateleira P89",
-      instrucoes: "Procure no desfecho do mistério.",
-      fraseParaAnotar: "TODOS MATARAM",
+        "Procure o guia sobre empregabilidade. No capítulo sobre habilidades interpessoais há uma lista sintetizada.",
+      pergunta: "Qual habilidade o autor destaca para empregabilidade?",
+      respostaCorreta: [
+        "comunicação habilidades sociais",
+        "adaptabilidade e atitude",
+        "trabalho em equipe",
+      ],
+      livro: "Empregabilidade — José Augusto Minarelli (carreira/profissional)",
+      localizacao: "Capítulo 2: Habilidades requisitadas",
+      instrucoes:
+        "Procure a recomendação sobre competências valorizadas no mercado.",
+      fraseParaAnotar: "ADAPTABILIDADE E COMUNICAÇÃO",
     },
     {
       id: 4,
       texto:
-        "O enigma do labirinto. Encontre em 'O Nome do Vento' a busca do protagonista.",
-      pergunta: "O que Kvothe procura?",
-      respostaCorreta: ["nome do vento", "segredo vento", "poder vento"],
-      livro: "O Nome do Vento",
-      localizacao: "Seção Fantasia - Prateleira F78",
-      instrucoes: "Procure no título do livro.",
-      fraseParaAnotar: "O NOME DO VENTO",
+        "Encontre o livro sobre transição para a vida adulta. No capítulo sobre carreira a autora dá um conselho direto.",
+      pergunta: "Qual conselho central para 'virar gente grande'?",
+      respostaCorreta: [
+        "planeje sua carreira",
+        "assuma responsabilidade",
+        "seja proativo",
+      ],
+      livro:
+        "Virando gente grande — Sofia Esteves do Amaral (carreira/juvenil)",
+      localizacao: "Capítulo 1: Planejamento de carreira",
+      instrucoes:
+        "Procure a orientação principal sobre assumir responsabilidades.",
+      fraseParaAnotar: "ASSUMA RESPONSABILIDADE PELA SUA VIDA",
     },
     {
       id: 5,
       texto:
-        "O mistério do manuscrito. Encontre em 'A Sombra do Vento' o cemitério de livros.",
-      pergunta: "O que é o Cemitério dos Livros Esquecidos?",
+        "Busque o material que trata de cidadania. No capítulo sobre direitos há uma definição curta.",
+      pergunta: "O que é cidadania segundo o texto?",
       respostaCorreta: [
-        "livros esquecidos",
-        "biblioteca secreta",
-        "livros perdidos",
+        "participacao direitos e deveres",
+        "direitos e deveres",
+        "participacao social",
       ],
-      livro: "A Sombra do Vento",
-      localizacao: "Seção Mistério - Prateleira M12",
-      instrucoes: "Procure no início do livro.",
-      fraseParaAnotar: "LIVROS ESQUECIDOS",
+      livro: "Cidadania — Maria de Lourdes Cerquier-Manzini (educação/cívica)",
+      localizacao: "Capítulo 1: Direitos e Deveres",
+      instrucoes: "Procure a frase que resume cidadania como participação.",
+      fraseParaAnotar: "CIDADANIA É PARTICIPAÇÃO",
     },
   ],
 
-  // TRILHA 5 - AVENTURA
   5: [
     {
       id: 1,
       texto:
-        "A aventura da descoberta. Encontre em 'Viagem ao Centro da Terra' o ponto de partida.",
-      pergunta: "Onde começa a jornada?",
+        "Localize o tratado antigo de estratégia. No capítulo sobre guerra há uma máxima curta e direta.",
+      pergunta: "Qual máxima militar resume o texto?",
       respostaCorreta: [
-        "cratera sneffels",
-        "vulcano sneffels",
-        "islandia sneffels",
+        "conheca a si e ao inimigo",
+        "vencer sem lutar",
+        "estrategia e vitoria",
       ],
-      livro: "Viagem ao Centro da Terra",
-      localizacao: "Seção Ficção - Prateleira F34",
-      instrucoes: "Procure a localização do portal.",
-      fraseParaAnotar: "CRATERA SNEFFELS",
+      livro: "A arte da guerra — Sun Tzu (estratégia/militar, clássico)",
+      localizacao: "Capítulo 3: Conhecimento e Estratégia",
+      instrucoes: "Procure a máxima sobre conhecer a si e ao inimigo.",
+      fraseParaAnotar: "CONHEÇA A SI E AO INIMIGO",
     },
     {
       id: 2,
       texto:
-        "A aventura marítima. Encontre em 'Vinte Mil Léguas Submarinas' a descrição do Náutilus.",
-      pergunta: "Como é o submarino?",
-      respostaCorreta: ["narval gigante", "monstro marinho", "narval aço"],
-      livro: "Vinte Mil Léguas Submarinas",
-      localizacao: "Seção Aventura - Prateleira A56",
-      instrucoes: "Procure a primeira aparição do Náutilus.",
-      fraseParaAnotar: "NARVAL GIGANTE",
+        "Encontre o manual de ensino sobre competências. No capítulo de planejamento está uma dica sobre objetivos de aprendizagem.",
+      pergunta: "Qual objetivo central de ensinar competências?",
+      respostaCorreta: [
+        "ensinar para atuar",
+        "competencias para a pratica",
+        "aprender fazendo",
+      ],
+      livro:
+        "Como aprender e ensinar competências — Antoni Zabala e Laia Arnau (educação/formação)",
+      localizacao: "Capítulo 2: Planejamento por competências",
+      instrucoes:
+        "Procure a linha que relaciona ensino com prática profissional.",
+      fraseParaAnotar: "ENSINAR PARA A PRÁTICA",
     },
     {
       id: 3,
       texto:
-        "A aventura espacial. Encontre em '2001: Uma Odisseia no Espaço' o monolito misterioso.",
-      pergunta: "O que os macacos encontram?",
-      respostaCorreta: ["monolito negro", "pedra negra", "objeto misterioso"],
-      livro: "2001: Uma Odisseia no Espaço",
-      localizacao: "Seção Ficção - Prateleira FC67",
-      instrucoes: "Procure a descoberta no início.",
-      fraseParaAnotar: "MONOLITO NEGRO",
+        "Busque o guia crítico sobre educação. No capítulo introdutório há uma reflexão sobre métodos de ensino.",
+      pergunta: "O que o autor defende sobre como aprender?",
+      respostaCorreta: [
+        "aprende melhor com reflexao",
+        "metodos participativos",
+        "ensino ativo",
+      ],
+      livro: "Aprender sim, mas como — Philippe Meirieu (pedagogia/crítica)",
+      localizacao: "Capítulo 1: Por uma pedagogia ativa",
+      instrucoes:
+        "Procure a recomendação de métodos participativos de aprendizagem.",
+      fraseParaAnotar: "APRENDIZAGEM ATIVA E PARTICIPATIVA",
     },
     {
       id: 4,
       texto:
-        "A aventura na selva. Encontre em 'O Livro da Selva' a lei dos lobos.",
-      pergunta: "Qual a lei da selva?",
+        "Encontre o texto que analisa moda. No capítulo sobre indústria há uma declaração sobre ritmo das tendências.",
+      pergunta: "Como o autor descreve a moda contemporânea?",
       respostaCorreta: [
-        "força lobo matilha",
-        "lobo fortaleza",
-        "matilha força",
+        "ritmo efemero",
+        "consumo rapido efemeridade",
+        "cultura do efemero",
       ],
-      livro: "O Livro da Selva",
-      localizacao: "Seção Infantil - Prateleira I45",
-      instrucoes: "Procure os ensinamentos de Baloo.",
-      fraseParaAnotar: "FORÇA DO LOBO É A MATILHA",
+      livro: "O império do Efêmero — Gilles Lipovetsky (cultura/moda)",
+      localizacao: "Capítulo 2: A velocidade das tendências",
+      instrucoes: "Procure a passagem que descreve moda como efêmera.",
+      fraseParaAnotar: "A MODA É EFÊMERA",
     },
     {
       id: 5,
       texto:
-        "A aventura do conhecimento. Encontre em 'O Mundo de Sofia' a pergunta filosófica.",
-      pergunta: "Qual a primeira pergunta?",
-      respostaCorreta: ["quem és tu", "quem é você", "identidade pergunta"],
-      livro: "O Mundo de Sofia",
-      localizacao: "Seção Filosofia - Prateleira FIL34",
-      instrucoes: "Procure o cartão misterioso.",
-      fraseParaAnotar: "QUEM ÉS TU",
+        "Procure o livro que trata de etiqueta e estilo. No capítulo sobre imagem há um conselho conciso.",
+      pergunta: "Qual a dica central para 'segredos de estilo'?",
+      respostaCorreta: [
+        "seja autoconfiante",
+        "imagem coerente com personalidade",
+        "conheca seu estilo",
+      ],
+      livro: "Segredos de estilo — Christiana Francini (estilo/moda)",
+      localizacao: "Capítulo 3: Construindo sua imagem",
+      instrucoes:
+        "Procure a dica sobre coerência entre imagem e personalidade.",
+      fraseParaAnotar: "SEJA AUTÊNTICO NO SEU ESTILO",
     },
   ],
 
-  // TRILHA 6 - SABEDORIA
   6: [
     {
       id: 1,
       texto:
-        "A sabedoria começa com o autoconhecimento. Encontre em 'O Pequeno Príncipe' a lição da raposa.",
-      pergunta: "O que é invisível aos olhos?",
+        "Encontre a obra que mistura moda e arte. No capítulo sobre história há um ponto sobre relação arte-moda.",
+      pergunta: "Como o autor relaciona moda e arte?",
       respostaCorreta: [
-        "essencial invisível",
-        "verdade invisível",
-        "importante invisível",
+        "moda influencia arte",
+        "arte influencia moda",
+        "artes e moda entrelaçadas",
       ],
-      livro: "O Pequeno Príncipe",
-      localizacao: "Seção Infantil - Prateleira I34",
-      instrucoes: "Procure no capítulo 21 o diálogo com a raposa.",
-      fraseParaAnotar: "O ESSENCIAL É INVISÍVEL AOS OLHOS",
+      livro: "Moda e Arte — Dinah Bueno Pezzolo (ensaios/moda e arte)",
+      localizacao: "Capítulo 1: A Moda como Expressão Artística",
+      instrucoes: "Procure a sentença que liga moda à indústria artística.",
+      fraseParaAnotar: "MODA E ARTE SÃO INTERLIGADAS",
     },
     {
       id: 2,
       texto:
-        "A manipulação da verdade é uma arma. Encontre em '1984' os slogans do Partido.",
-      pergunta: "Quais são os paradoxos do Partido?",
+        "Procure o livro prático sobre não errar mais. No capítulo de dicas há uma máxima curta de comportamento profissional.",
+      pergunta: "Qual orientação básica para não errar mais?",
       respostaCorreta: [
-        "guerra é paz",
-        "liberdade escravidão",
-        "ignorância força",
+        "procurar padroes e verificar",
+        "metodo e cuidado",
+        "verificar antes agir",
       ],
-      livro: "1984",
-      localizacao: "Seção Ficção - Prateleira F12",
-      instrucoes: "Procure no primeiro capítulo os três slogans.",
-      fraseParaAnotar: "GUERRA É PAZ LIBERDADE É ESCRAVIDÃO IGNORÂNCIA É FORÇA",
+      livro: "Não erre mais — Luiz Antônio Saconni (produtividade/qualidade)",
+      localizacao: "Capítulo 2: Boas práticas no trabalho",
+      instrucoes: "Procure a máxima sobre revisão e método.",
+      fraseParaAnotar: "REVEJA, VERIFIQUE, NÃO APERTE ENTER SEM CONFERIR",
     },
     {
       id: 3,
       texto:
-        "O amor persiste mesmo na escuridão. Encontre em 'A Moreninha' a declaração final.",
-      pergunta: "Como Augusto declara seu amor?",
+        "Encontre a obra que trata da história das bolsas. No capítulo ilustrado há um trecho que resume evolução estética.",
+      pergunta: "Como o autor descreve a evolução das bolsas?",
       respostaCorreta: [
-        "amo-te mais que tudo",
-        "amo-te infinitamente",
-        "amor eterno",
+        "funcao e moda",
+        "evolucao estetica e utilitaria",
+        "forma e funcao",
       ],
-      livro: "A Moreninha",
-      localizacao: "Seção Romance - Prateleira R67",
-      instrucoes: "Procure no capítulo final a confissão de amor.",
-      fraseParaAnotar: "AMO-TE MAIS QUE TUDO",
+      livro: "A História das bolsas — Dhora Costa (moda/história visual)",
+      localizacao: "Capítulo ilustrado: Evolução por séculos",
+      instrucoes: "Procure o resumo sobre função e estética ao longo do tempo.",
+      fraseParaAnotar: "FUNÇÃO E ESTÉTICA",
     },
     {
       id: 4,
       texto:
-        "A comunidade é fundamental para sobreviver. Encontre em 'O Cortiço' a metáfora social.",
-      pergunta: "Como é descrito o cortiço?",
-      respostaCorreta: ["organismo coletivo", "ser coletivo", "vida coletiva"],
-      livro: "O Cortiço",
-      localizacao: "Seção Brasileira - Prateleira B29",
-      instrucoes: "Procure no capítulo 3 a descrição do cortiço.",
-      fraseParaAnotar: "ORGANISMO COLETIVO",
+        "Busque obra técnica sobre acionamentos. No capítulo de princípios está uma definição curta sobre atuação eletromagnética.",
+      pergunta: "O que é acionamento eletromagnético?",
+      respostaCorreta: [
+        "uso eletromagnetico para mover",
+        "forca magnetica aplicada",
+        "atuador eletromagnetico",
+      ],
+      livro:
+        "Acionamentos Eletromagnéticos — Jorge Assad Leludak (engenharia elétrica)",
+      localizacao: "Capítulo 1: Princípios de atuação",
+      instrucoes: "Procure a explicação concisa do princípio de atuação.",
+      fraseParaAnotar: "FORÇA ELETROMAGNÉTICA GERA MOVIMENTO",
     },
     {
       id: 5,
       texto:
-        "A transformação pode ser a única saída. Encontre em 'A Metamorfose' o início impactante.",
-      pergunta: "O que acontece com Gregor Samsa?",
+        "Procure o compêndio de química integral. No capítulo introdutório há a declaração sobre método científico aplicado à química.",
+      pergunta: "Qual é a base do método em química descrita?",
       respostaCorreta: [
-        "acordou transformado",
-        "transformou-se inseto",
-        "metamorfose",
+        "experimento observacao e analisE",
+        "metodo experimental",
+        "observacao e reproducao",
       ],
-      livro: "A Metamorfose",
-      localizacao: "Seção Estrangeira - Prateleira E56",
-      instrucoes: "A frase está na primeira linha do livro.",
-      fraseParaAnotar: "GREGOR SAMSA ACORDOU TRANSFORMADO",
+      livro: "Química Integral — Martha Reis (educacional/química)",
+      localizacao: "Capítulo introdutório: Método em Química",
+      instrucoes: "Procure a frase que sintetiza método experimental.",
+      fraseParaAnotar: "EXPERIMENTO E OBSERVAÇÃO SÃO FUNDAMENTAIS",
     },
   ],
 
-  // TRILHA 7 - DESTINO
   7: [
     {
       id: 1,
       texto:
-        "O destino tece seus fios. Encontre em 'Romeu e Julieta' a famosa cena.",
-      pergunta: "O que Romeu vê na janela?",
-      respostaCorreta: ["que luz janela", "julieta sol", "luz beleza"],
-      livro: "Romeu e Julieta",
-      localizacao: "Seção Teatro - Prateleira TE34",
-      instrucoes: "Procure a cena do balcão no Ato II.",
-      fraseParaAnotar: "QUE LUZ ALI NA JANELA",
+        "Encontre o manual de Química Geral. No capítulo de ligações há uma explicação curta sobre valência.",
+      pergunta: "O que define a valência de um elemento?",
+      respostaCorreta: [
+        "numero de ligacoes",
+        "capacidade de ligar",
+        "valencia determina ligacoes",
+      ],
+      livro: "Química Geral — John B. Russell (texto universitário/química)",
+      localizacao: "Capítulo 3: Ligações Químicas",
+      instrucoes: "Procure a definição simples do conceito de valência.",
+      fraseParaAnotar: "VALÊNCIA É A CAPACIDADE DE LIGAÇÃO",
     },
     {
       id: 2,
       texto:
-        "A jornada da meia-idade. Encontre em 'A Divina Comédia' o início da epopeia.",
-      pergunta: "Como começa a Divina Comédia?",
-      respostaCorreta: ["meio caminho vida", "caminho vida", "selva escura"],
-      livro: "A Divina Comédia",
-      localizacao: "Seção Poesia - Prateleira P67",
-      instrucoes: "A frase está no primeiro canto do Inferno.",
-      fraseParaAnotar: "NO MEIO DO CAMINHO DA NOSSA VIDA",
+        "Localize o livro sobre alimentação inteligente. No capítulo sobre nutrientes há uma recomendação curta.",
+      pergunta: "Qual a ideia central sobre alimentação saudável?",
+      respostaCorreta: [
+        "equilibrio e variedade",
+        "comer variado e equilibrado",
+        "nutricao balanceada",
+      ],
+      livro: "Inteligência Alimentar — E. Al. Roper (nutrição/prático)",
+      localizacao: "Capítulo 2: Nutrientes e Equilíbrio",
+      instrucoes: "Procure a recomendação sobre dieta equilibrada.",
+      fraseParaAnotar: "EQUILÍBRIO E VARIEDADE NA ALIMENTAÇÃO",
     },
     {
       id: 3,
       texto:
-        "A coragem de viver o presente. Encontre em 'O Poder do Agora' o conceito central.",
-      pergunta: "Qual o poder do momento presente?",
-      respostaCorreta: ["poder agora", "força presente", "momento agora"],
-      livro: "O Poder do Agora",
-      localizacao: "Seção Autoajuda - Prateleira AA45",
-      instrucoes: "Procure no título do primeiro capítulo.",
-      fraseParaAnotar: "O PODER DO AGORA",
+        "Procure o guia de projetos de engenharia. No capítulo de planejamento há um passo-chave sobre especificação.",
+      pergunta: "Qual o passo essencial no planejamento de projetos?",
+      respostaCorreta: [
+        "definir requisitos claros",
+        "especificacao requisitos",
+        "planejamento e especificacao",
+      ],
+      livro: "Projetos na engenharia — Gerard Pahl (engenharia/projetos)",
+      localizacao: "Capítulo 1: Especificação e Requisitos",
+      instrucoes:
+        "Procure a recomendação sobre definir requisitos antes de projetar.",
+      fraseParaAnotar: "DEFINIR REQUISITOS CLAROS",
     },
     {
       id: 4,
       texto:
-        "A coragem de assumir quem se é. Encontre em 'O Estranho Misterioso' a revelação.",
-      pergunta: "Quem é o estranho?",
-      respostaCorreta: ["sou satanás", "anjo caído", "diabo"],
-      livro: "O Estranho Misterioso",
-      localizacao: "Seção Literatura - Prateleira L78",
-      instrucoes: "Procure no capítulo 3 a revelação.",
-      fraseParaAnotar: "SOU SATANÁS",
+        "Encontre o livro sobre corrosão de materiais. No capítulo de proteção há uma instrução sobre prevenção.",
+      pergunta: "Qual é a medida básica contra corrosão?",
+      respostaCorreta: [
+        "proteçao superficie revestimento",
+        "revestir proteger",
+        "barreiras anticorrosivas",
+      ],
+      livro: "Corrosão — Vicente Gentil (materiais/engenharia)",
+      localizacao: "Capítulo 4: Técnicas de Proteção",
+      instrucoes: "Procure a explicação sobre revestimentos protetores.",
+      fraseParaAnotar: "REVESTIR SUPERFÍCIES PARA PREVENIR CORROSÃO",
     },
     {
       id: 5,
       texto:
-        "A superação das limitações. Encontre em 'Helen Keller' o momento crucial.",
-      pergunta: "Qual o dia mais importante?",
+        "Procure o manual de máquinas. No capítulo sobre manutenção há uma recomendação de segurança-chave.",
+      pergunta: "Qual prática fundamental de segurança?",
       respostaCorreta: [
-        "dia mais importante vida",
-        "dia crucial",
-        "momento decisivo",
+        "desligar antes manutencao",
+        "bloquear fonte energia",
+        "procedimentos de seguranca",
       ],
-      livro: "Helen Keller",
-      localizacao: "Seção Biografia - Prateleira B12",
-      instrucoes: "Procure o momento do aprendizado.",
-      fraseParaAnotar: "DIA MAIS IMPORTANTE DA MINHA VIDA",
+      livro: "Máquinas — A.L. Casillas (engenharia/máquinas)",
+      localizacao: "Capítulo 7: Manutenção e Segurança",
+      instrucoes:
+        "Procure a instrução sobre procedimento seguro antes da manutenção.",
+      fraseParaAnotar: "DESLIGUE E BLOQUEIE ANTES DE MEXER",
     },
   ],
 
-  // TRILHA 8 - CONHECIMENTO
   8: [
     {
       id: 1,
       texto:
-        "A busca pelo conhecimento eterno. Encontre em 'O Nome da Rosa' a frase final.",
-      pergunta: "O que permanece no final?",
+        "Encontre o compêndio de Eletrotécnica. No capítulo de circuitos há uma definição simples de tensão.",
+      pergunta: "O que é tensão elétrica?",
       respostaCorreta: [
-        "rosa permanece nome",
-        "nome sobrevive",
-        "rosa simbólica",
+        "diferenca de potencial",
+        "forca que move carga",
+        "diferenca de potencial eletrico",
       ],
-      livro: "O Nome da Rosa",
-      localizacao: "Seção Mistério - Prateleira M34",
-      instrucoes: "Procure no final do livro.",
-      fraseParaAnotar: "A ROSA PERMANECE EM SEU NOME",
+      livro:
+        "Eletrotécnica: Princípios e aplicações — Gray Wallace (técnico/eletricidade)",
+      localizacao: "Capítulo 2: Conceitos Básicos de Eletricidade",
+      instrucoes: "Procure a definição de tensão e sua analogia física.",
+      fraseParaAnotar: "TENSÃO É DIFERENÇA DE POTENCIAL",
     },
     {
       id: 2,
       texto:
-        "A esperança nos laços únicos. Encontre em 'O Pequeno Príncipe' a lição da raposa.",
-      pergunta: "O que a amizade cria?",
-      respostaCorreta: ["cativar único", "laço especial", "amizade única"],
-      livro: "O Pequeno Príncipe",
-      localizacao: "Seção Infantil - Prateleira IP78",
-      instrucoes: "Procure no capítulo 21.",
-      fraseParaAnotar: "CATIVAR TE FEZ ÚNICO",
+        "Busque o manual de materiais elétricos. No capítulo sobre condutores há uma recomendação sobre escolha de cabos.",
+      pergunta: "Como escolher cabo elétrico básico?",
+      respostaCorreta: [
+        "calibre corrente e isolacao",
+        "capacidade corrente e isolacao",
+        "calibre conforme carga",
+      ],
+      livro: "Materiais elétricos — Walfredo Schmit (técnico/eletricidade)",
+      localizacao: "Capítulo 3: Condutores e Isolantes",
+      instrucoes: "Procure a instrução sobre dimensionamento básico de cabos.",
+      fraseParaAnotar: "ESCOLHER CABO PELO CALIBRE E ISOLAÇÃO",
     },
     {
       id: 3,
       texto:
-        "A esperança na jornada de retorno. Encontre em 'A Odisseia' a descrição de Ulisses.",
-      pergunta: "Como Homero descreve Ulisses?",
-      respostaCorreta: ["homem mil ardis", "astucioso herói", "sábio ardiloso"],
-      livro: "A Odisseia",
-      localizacao: "Seção Épicos - Prateleira E23",
-      instrucoes: "Procure na abertura do poema.",
-      fraseParaAnotar: "HOMEM DE MIL ARDIS",
+        "Encontre o guia de circuitos. No capítulo inicial há a regra para análise de circuitos em série.",
+      pergunta: "O que acontece com a corrente em um circuito em série?",
+      respostaCorreta: [
+        "corrente eh a mesma",
+        "mesma corrente em serie",
+        "corrente constante",
+      ],
+      livro:
+        "Curso de circuitos elétricos — L. Q. Orsini e Denise Consonni (engenharia elétrica)",
+      localizacao: "Capítulo 4: Circuitos Série e Paralelo",
+      instrucoes: "Procure a propriedade da corrente em circuitos série.",
+      fraseParaAnotar: "A CORRENTE É A MESMA NO CIRCUITO EM SÉRIE",
     },
     {
       id: 4,
       texto:
-        "A esperança na memória. Encontre em 'Cem Anos de Solidão' o início memorável.",
-      pergunta: "Como começa o livro?",
+        "Procure o material técnico sobre SPDA (proteção contra descargas). No capítulo de normas há uma recomendação prática.",
+      pergunta: "Qual é a função básica do SPDA?",
       respostaCorreta: [
-        "muitos anos depois",
-        "frente pelotão",
-        "lembraria tarde",
+        "desviar corrente para terra",
+        "proteger contra raios",
+        "descarga controlada a terra",
       ],
-      livro: "Cem Anos de Solidão",
-      localizacao: "Seção Realismo - Prateleira RM56",
-      instrucoes: "A frase está na primeira página.",
-      fraseParaAnotar: "MUITOS ANOS DEPOIS",
+      livro: "SPDA — André Nunes de Souza et al. (normas/proteção elétrica)",
+      localizacao: "Capítulo 1: Conceitos e Aplicações",
+      instrucoes: "Procure a definição do propósito do SPDA.",
+      fraseParaAnotar: "DESVIAR CORRENTE PARA A TERRA",
     },
     {
       id: 5,
       texto:
-        "O enigma do tempo. Encontre em 'O Físico' a busca pelo conhecimento.",
-      pergunta: "O que Rob J. busca?",
+        "Encontre o manual de microcontroladores. No capítulo introdutório há uma dica sobre conexão do PIC.",
+      pergunta: "O que é essencial para conectar um PIC ao circuito?",
       respostaCorreta: [
-        "conhecimento cura",
-        "sabedoria antiga",
-        "ciência perdida",
+        "alimentacao e referencia terra",
+        "alimentacao e clock",
+        "vcc e gnd",
       ],
-      livro: "O Físico",
-      localizacao: "Seção Histórico - Prateleira H45",
-      instrucoes: "Procure no propósito da jornada.",
-      fraseParaAnotar: "CONHECIMENTO CURA",
+      livro:
+        "Conectando o PIC — David José de Souza e Nicolás César Lavinia (eletrônica/microcontroladores)",
+      localizacao: "Capítulo 1: Primeira Conexão e Alimentação",
+      instrucoes:
+        "Procure a instrução sobre pinos de alimentação e referência.",
+      fraseParaAnotar: "FORNECER VCC E GND CORRETOS",
     },
   ],
 
-  // TRILHA 9 - LIBERDADE
   9: [
     {
       id: 1,
       texto:
-        "O mistério da ilha. Encontre em 'A Ilha do Tesouro' o mapa secreto.",
-      pergunta: "O que o mapa revela?",
-      respostaCorreta: ["ilha tesouro", "tesouro escondido", "mapa tesouro"],
-      livro: "A Ilha do Tesouro",
-      localizacao: "Seção Aventura - Prateleira A23",
-      instrucoes: "Procure a descoberta do mapa.",
-      fraseParaAnotar: "ILHA TESOURO",
+        "Localize o livro de eletrônica de potência. No capítulo sobre conversores há uma definição essencial.",
+      pergunta: "O que faz um conversor de potência?",
+      respostaCorreta: [
+        "converte tensao e corrente",
+        "controla energia eletrica",
+        "transforma parametros eletricos",
+      ],
+      livro:
+        "Eletrônica de Potência — Salvador Pinillos Gimenez e Devair Arrabaça (eletrônica/energia)",
+      localizacao: "Capítulo 2: Conversores e Inversores",
+      instrucoes: "Procure a explicação sobre função básica de conversores.",
+      fraseParaAnotar: "CONVERTER E CONTROLAR ENERGIA ELÉTRICA",
     },
     {
       id: 2,
       texto:
-        "O enigma do sonho. Encontre em 'A Interpretação dos Sonhos' a definição.",
-      pergunta: "O que são os sonhos para Freud?",
+        "Encontre o texto sobre antenas. No capítulo sobre ganho há uma frase sobre directividade.",
+      pergunta: "O que indica o ganho de uma antena?",
       respostaCorreta: [
-        "realização desejos",
-        "desejos realizados",
-        "vontades sonho",
+        "directividade e eficiencia",
+        "capacidade irradiar em direcao",
+        "potencia em direcao pref",
       ],
-      livro: "A Interpretação dos Sonhos",
-      localizacao: "Seção Psicologia - Prateleira PS12",
-      instrucoes: "Procure na introdução.",
-      fraseParaAnotar: "REALIZAÇÃO DE DESEJOS",
+      livro:
+        "Engenharia de Antenas — Luiz Gonzaga Rios e Eduardo Barbosa Perri (telecomunicações/antenas)",
+      localizacao: "Capítulo 5: Parâmetros de Antena",
+      instrucoes: "Procure a definição que relaciona ganho e directividade.",
+      fraseParaAnotar: "GANHO INDICA DIRECTIVIDADE E EFICIÊNCIA",
     },
     {
       id: 3,
-      texto: "O mistério do oráculo. Encontre em 'Edipo Rei' a profecia.",
-      pergunta: "Qual a maldição de Édipo?",
-      respostaCorreta: ["matar pai", "casar mãe", "destino trágico"],
-      livro: "Édipo Rei",
-      localizacao: "Seção Teatro - Prateleira TE89",
-      instrucoes: "Procure a profecia no início.",
-      fraseParaAnotar: "MATAR O PAI CASAR COM A MÃE",
+      texto:
+        "Procure o livro sobre usinagem. No capítulo de teoria há uma máxima sobre velocidade de corte.",
+      pergunta: "O que definir melhor o corte na usinagem?",
+      respostaCorreta: [
+        "velocidade e avanço",
+        "parametros de usinagem",
+        "velocidade de corte certa",
+      ],
+      livro:
+        "Teoria de Usinagem dos Materiais — Álisson Rocha Machado et al. (engenharia/manufatura)",
+      localizacao: "Capítulo 3: Parâmetros de Usinagem",
+      instrucoes: "Procure a recomendação sobre velocidade e avanço ideais.",
+      fraseParaAnotar: "VELOCIDADE E AVANÇO DETERMINAM QUALIDADE DO CORTE",
     },
     {
       id: 4,
       texto:
-        "O enigma final. Encontre em 'O Segredo de Brokeback Mountain' o amor proibido.",
-      pergunta: "O que os homens escondem?",
-      respostaCorreta: ["amor secreto", "paixão proibida", "afeto escondido"],
-      livro: "O Segredo de Brokeback Mountain",
-      localizacao: "Seção Drama - Prateleira D67",
-      instrucoes: "Procure a revelação do segredo.",
-      fraseParaAnotar: "AMOR SECRETO",
+        "Encontre a enciclopédia visual sobre automóveis. No índice há uma nota sobre sistema de freios.",
+      pergunta: "Qual componente é essencial para frear o carro?",
+      respostaCorreta: [
+        "sistema de freios",
+        "disco e pastilha",
+        "sistema hidraulico de freio",
+      ],
+      livro: "O livro do carro — Enciclopédia visual (referência técnica)",
+      localizacao: "Seção Freios: Índice técnico",
+      instrucoes: "Procure a linha que descreve o sistema de frenagem.",
+      fraseParaAnotar: "DISCO E PASTILHA SÃO ESSENCIAIS",
     },
     {
       id: 5,
       texto:
-        "A aventura do herói. Encontre em 'A Guerra dos Tronos' o lema dos Stark.",
-      pergunta: "Qual o lema da Casa Stark?",
+        "Busque o manual de custos. No capítulo sobre apuração há uma frase sobre classificação de custos.",
+      pergunta: "Como se classificam os custos básicos?",
       respostaCorreta: [
-        "inverno está chegando",
-        "inverno chegando",
-        "frio chegando",
+        "fixos e variaveis",
+        "custos fixos e variaveis",
+        "classificacao por comportamento",
       ],
-      livro: "A Guerra dos Tronos",
-      localizacao: "Seção Fantasia - Prateleira F89",
-      instrucoes: "Procure o símbolo da família.",
-      fraseParaAnotar: "O INVERNO ESTÁ CHEGANDO",
+      livro: "Custos — René Gomes Dutra (finanças/contabilidade)",
+      localizacao: "Capítulo 2: Classificação de Custos",
+      instrucoes: "Procure a explicação sobre fixos e variáveis.",
+      fraseParaAnotar: "CUSTOS SÃO FIXOS OU VARIÁVEIS",
     },
   ],
 
-  // TRILHA 10 - IMAGINAÇÃO
   10: [
     {
       id: 1,
       texto:
-        "A aventura da imaginação. Encontre em 'Alice no País das Maravilhas' o conselho do Gato.",
-      pergunta: "O que o Gato diz a Alice?",
-      respostaCorreta: ["somos todos loucos", "mundo loucura", "loucura geral"],
-      livro: "Alice no País das Maravilhas",
-      localizacao: "Seção Infantil - Prateleira I67",
-      instrucoes: "Procure o diálogo com o Gato.",
-      fraseParaAnotar: "SOMOS TODOS LOUCOS",
+        "Localize o manual sobre gestão de facilidades. No capítulo sobre serviços há uma definição de facility management.",
+      pergunta: "O que é gestão de facilidades?",
+      respostaCorreta: [
+        "gestao de servicos e ambientes",
+        "facility management cuidar de ativos",
+        "administracao de facilidades",
+      ],
+      livro:
+        "Gestão de facilidades — Robson Quinello e José Roberto Nicoletti (gestão/infraestrutura)",
+      localizacao: "Capítulo 1: Conceito de Facility Management",
+      instrucoes:
+        "Procure a definição que resume a função do gestor de facilidades.",
+      fraseParaAnotar: "GERENCIAR SERVIÇOS E AMBIENTES",
     },
     {
       id: 2,
       texto:
-        "A aventura da sobrevivência. Encontre em 'O Senhor das Moscas' a queda do avião.",
-      pergunta: "Como as crianças chegam à ilha?",
-      respostaCorreta: ["acidente avião", "avião caiu", "naufrágio aéreo"],
-      livro: "O Senhor das Moscas",
-      localizacao: "Seção Drama - Prateleira D78",
-      instrucoes: "Procure o início da história.",
-      fraseParaAnotar: "ACIDENTE DE AVIÃO",
+        "Encontre o clássico de marketing. No capítulo sobre mix há uma linha que sintetiza marketing moderno.",
+      pergunta: "Qual é a função central do marketing segundo Kotler?",
+      respostaCorreta: [
+        "criar valor para o cliente",
+        "valor e satisfacao do cliente",
+        "gerar valor e satisfacao",
+      ],
+      livro: "Marketing — Philip Kotler (marketing/fundamentos)",
+      localizacao: "Capítulo 2: Conceitos Fundamentais do Marketing",
+      instrucoes: "Procure a frase que liga marketing à criação de valor.",
+      fraseParaAnotar: "CRIAR VALOR PARA O CLIENTE",
     },
     {
       id: 3,
       texto:
-        "A aventura do desconhecido. Encontre em 'A Máquina do Tempo' a descrição do futuro.",
-      pergunta: "Como é o ano 802.701?",
-      respostaCorreta: ["futuro distante", "ano 802701", "era futura"],
-      livro: "A Máquina do Tempo",
-      localizacao: "Seção Ficção - Prateleira F45",
-      instrucoes: "Procure a chegada ao futuro.",
-      fraseParaAnotar: "ANO 802701",
+        "Procure o livro sobre residências inteligentes. No capítulo de automação há uma recomendação sobre conectividade.",
+      pergunta: "Qual elemento é essencial em casas inteligentes?",
+      respostaCorreta: [
+        "conectividade e automacao",
+        "internet e sensores",
+        "conexao de dispositivos",
+      ],
+      livro:
+        "Residências Inteligentes — Caio Augusto Morais Bolzani (tecnologia/automação residencial)",
+      localizacao: "Capítulo 3: Sistemas de Automação",
+      instrucoes: "Procure a recomendação sobre integração e conectividade.",
+      fraseParaAnotar: "CONECTIVIDADE É ESSENCIAL",
     },
     {
       id: 4,
       texto:
-        "A aventura final. Encontre em 'As Viagens de Gulliver' a chegada a Lilipute.",
-      pergunta: "O que Gulliver encontra?",
-      respostaCorreta: ["homens pequenos", "povo pequeno", "seres minúsculos"],
-      livro: "As Viagens de Gulliver",
-      localizacao: "Seção Sátira - Prateleira S56",
-      instrucoes: "Procure o despertar em Lilipute.",
-      fraseParaAnotar: "HOMENS PEQUENOS",
+        "Encontre o ensaio sobre consumo e cultura. No capítulo analítico há uma frase que explica efemeridade da moda.",
+      pergunta: "Como o autor descreve o consumo contemporâneo?",
+      respostaCorreta: [
+        "consumo rapido e efemero",
+        "cultura do efemero",
+        "consumo por novidade",
+      ],
+      livro: "O império do Efêmero — Gilles Lipovetsky (ensaios/sociologia)",
+      localizacao: "Capítulo 4: A Sociedade de Consumo da Moda",
+      instrucoes: "Procure a frase que descreve a rapidez das tendências.",
+      fraseParaAnotar: "CONSUMO CONTEMPORÂNEO É EFÊMERO",
     },
     {
       id: 5,
       texto:
-        "A coragem do amor proibido. Encontre em 'Romeu e Julieta' a famosa cena.",
-      pergunta: "O que Romeu vê na janela?",
-      respostaCorreta: ["que luz janela", "julieta sol", "luz beleza"],
-      livro: "Romeu e Julieta",
-      localizacao: "Seção Teatro - Prateleira TE34",
-      instrucoes: "Procure a cena do balcão no Ato II.",
-      fraseParaAnotar: "QUE LUZ ALI NA JANELA",
+        "Localize o catálogo que articula arte e indústria. No capítulo introdutório há uma afirmação sobre estética industrial.",
+      pergunta: "O que o autor diz sobre arte e indústria?",
+      respostaCorreta: [
+        "industria influencia arte",
+        "arte e industria conectadas",
+        "design industrial e estetica",
+      ],
+      livro: "Arte e Indústria — Venâncio Filho (artes/design)",
+      localizacao: "Introdução: Arte e Produção Industrial",
+      instrucoes:
+        "Procure a ideia que relaciona produção com expressão estética.",
+      fraseParaAnotar: "INDÚSTRIA INFLUENCIA A ARTE",
     },
   ],
 };
@@ -742,17 +873,85 @@ function validarRespostaComTolerancia(
   });
 }
 
-// --- SORTEIO DE PERGUNTAS ---
+// --- FUNÇÃO: embaralhar array ---
+function embaralhar(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+// --- FUNÇÃO: sorteia perguntas da trilha sem repetir até acabar ---
 function sortearPerguntasDaTrilha(trilhaNumero) {
   const trilhaCompleta = TRILHAS[trilhaNumero];
   if (!trilhaCompleta) return null;
-  return [...trilhaCompleta].sort(() => Math.random() - 0.5).slice(0, 5);
+
+  // Carrega histórico de perguntas já jogadas dessa trilha
+  const perguntasJogadasKey = `birdbox_perguntas_trilha_${trilhaNumero}`;
+  const perguntasJogadas = JSON.parse(
+    localStorage.getItem(perguntasJogadasKey) || "[]"
+  );
+
+  // Filtra perguntas ainda não jogadas
+  const perguntasRestantes = trilhaCompleta.filter(
+    (p) => !perguntasJogadas.includes(p.id)
+  );
+
+  let perguntasSorteadas;
+
+  // Se já usou todas, reinicia o ciclo dessa trilha
+  if (perguntasRestantes.length === 0) {
+    console.log(`🔁 Reiniciando perguntas da trilha ${trilhaNumero}`);
+    localStorage.removeItem(perguntasJogadasKey);
+    perguntasSorteadas = embaralhar([...trilhaCompleta]).slice(0, 5);
+  } else {
+    // Sorteia até 5 das que restam
+    perguntasSorteadas = embaralhar([...perguntasRestantes]).slice(0, 5);
+  }
+
+  // Atualiza histórico das perguntas jogadas
+  const novasPerguntasJogadas = [
+    ...new Set([...perguntasJogadas, ...perguntasSorteadas.map((p) => p.id)]),
+  ];
+  localStorage.setItem(
+    perguntasJogadasKey,
+    JSON.stringify(novasPerguntasJogadas)
+  );
+
+  return perguntasSorteadas;
 }
 
+// --- FUNÇÃO: sorteia trilha sem repetir até acabar ---
 function sortearTrilha() {
   const trilhasDisponiveis = Object.keys(TRILHAS).map(Number);
-  const trilhaSorteada =
-    trilhasDisponiveis[Math.floor(Math.random() * trilhasDisponiveis.length)];
+  const trilhasJogadas = JSON.parse(
+    localStorage.getItem("birdbox_trilhas_jogadas") || "[]"
+  );
+
+  // Trilhas ainda não jogadas
+  const trilhasRestantes = trilhasDisponiveis.filter(
+    (n) => !trilhasJogadas.includes(n)
+  );
+
+  let trilhaSorteada;
+
+  if (trilhasRestantes.length === 0) {
+    console.log("🔁 Todas as trilhas já foram jogadas. Reiniciando o ciclo...");
+    localStorage.removeItem("birdbox_trilhas_jogadas");
+    return sortearTrilha(); // reinicia
+  } else {
+    trilhaSorteada =
+      trilhasRestantes[Math.floor(Math.random() * trilhasRestantes.length)];
+  }
+
+  // Atualiza trilhas jogadas
+  trilhasJogadas.push(trilhaSorteada);
+  localStorage.setItem(
+    "birdbox_trilhas_jogadas",
+    JSON.stringify(trilhasJogadas)
+  );
+
+  console.log(`🎯 Trilha sorteada: ${trilhaSorteada}`);
+  console.log("📜 Trilhas já jogadas:", trilhasJogadas);
+
+  // Retorna trilha com perguntas sorteadas
   return {
     numero: trilhaSorteada,
     perguntas: sortearPerguntasDaTrilha(trilhaSorteada),

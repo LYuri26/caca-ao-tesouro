@@ -1,19 +1,21 @@
-/* Variáveis CSS personalizadas */
+/* 🎨 Variáveis CSS personalizadas */
 :root {
   --primary-dark: #0f172a;
   --secondary-dark: #1e293b;
-  --accent-warning: #f59e0b;
+  --accent-warning: #fbbf24;
   --accent-warning-dark: #d97706;
   --success-color: #10b981;
   --danger-color: #ef4444;
+  --text-light: #f8fafc;
+  --text-muted: #cbd5e1;
   --gradient-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 }
 
-/* Configurações gerais */
+/* ⚙️ Configurações gerais */
 body {
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
   background: var(--gradient-bg);
-  color: #f8fafc;
+  color: var(--text-light);
   line-height: 1.6;
 }
 
@@ -24,9 +26,10 @@ body {
 
 .bg-darkblue {
   background-color: var(--primary-dark) !important;
+  color: var(--text-light);
 }
 
-/* Loading Screen */
+/* 🌀 Tela de carregamento */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -48,6 +51,7 @@ body {
 
 .loading-content {
   text-align: center;
+  color: var(--text-light);
 }
 
 .bird-box-logo i {
@@ -56,56 +60,56 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Cards principais */
+/* 🧩 Cards principais */
 .game-header-card {
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(30, 41, 59, 0.85);
   border: 1px solid rgba(245, 158, 11, 0.3);
   border-radius: 15px;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
+  color: var(--text-light);
 }
 
 .pista-card {
-  background: rgba(30, 41, 59, 0.9);
+  background: rgba(30, 41, 59, 0.92);
   border: 1px solid rgba(245, 158, 11, 0.3);
   border-radius: 15px;
-  overflow: hidden;
   margin-bottom: 1.5rem;
-  backdrop-filter: blur(10px);
+  color: var(--text-light);
 }
 
+/* Cabeçalho da pista */
 .pista-header {
   background: linear-gradient(
     135deg,
     var(--accent-warning),
     var(--accent-warning-dark)
   );
-  color: var(--primary-dark);
+  color: #1e1e1e; /* texto escuro sobre fundo dourado */
   padding: 1.5rem;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.4);
+  font-weight: 700;
 }
 
 .pista-header h5 {
   margin: 0;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .pista-body {
   padding: 2rem;
 }
 
-/* Cards da sidebar */
+/* 🧭 Sidebar */
 .sidebar-card {
   background: rgba(30, 41, 59, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  backdrop-filter: blur(10px);
+  color: var(--text-light);
 }
 
 .sidebar-header {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.85);
   padding: 1rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -120,40 +124,35 @@ body {
   padding: 1.5rem;
 }
 
-/* Card de pergunta */
+/* 💬 Card de pergunta */
 .pergunta-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(15, 23, 42, 0.7);
   border: 1px solid rgba(245, 158, 11, 0.2);
   border-radius: 10px;
   padding: 1.5rem;
-  margin: 1.5rem 0;
+  color: var(--text-light);
 }
 
 .pergunta-card h6 {
   color: var(--accent-warning);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Card de localização */
+/* 📍 Card de localização */
 .localizacao-card {
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid var(--success-color);
   border-radius: 15px;
-  overflow: hidden;
   margin-top: 1.5rem;
+  color: var(--text-light);
 }
 
 .localizacao-header {
   background: linear-gradient(135deg, var(--success-color), #059669);
-  color: white;
+  color: #ffffff;
   padding: 1.5rem;
   border-bottom: 1px solid var(--success-color);
-}
-
-.localizacao-header h5 {
-  margin: 0;
-  font-weight: 700;
 }
 
 .localizacao-body {
@@ -161,7 +160,7 @@ body {
 }
 
 .info-item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .info-item h6 {
@@ -171,32 +170,34 @@ body {
 }
 
 .frase-coletada .alert {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.15);
   border: 1px solid var(--success-color);
-  color: #d1fae5;
+  color: #bbf7d0;
 }
 
-/* Progresso e números */
+/* 📊 Progresso e números */
 .progresso-numeros {
   padding: 1rem;
+  color: var(--text-light);
 }
 
 .progresso-numeros .fs-2 {
   font-weight: 800;
 }
 
-/* Palavras coletadas */
+/* 🧩 Palavras coletadas */
 .palavras-coletadas {
   max-height: 300px;
   overflow-y: auto;
 }
 
 .palavra-item {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(15, 23, 42, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 0.75rem;
+  color: var(--text-light);
   transition: all 0.3s ease;
 }
 
@@ -206,32 +207,31 @@ body {
 }
 
 .palavra-numero {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--accent-warning);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-/* Formulários e inputs */
+/* ✍️ Formulários e inputs */
 .form-control {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #f8fafc;
-  transition: all 0.3s ease;
+  color: var(--text-light);
 }
 
 .form-control:focus {
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.95);
   border-color: var(--accent-warning);
-  color: #f8fafc;
+  color: var(--text-light);
   box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.25);
 }
 
 .form-control::placeholder {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
-/* Botões */
+/* 🟡 Botões */
 .btn-warning {
   background: linear-gradient(
     135deg,
@@ -239,21 +239,21 @@ body {
     var(--accent-warning-dark)
   );
   border: none;
-  color: var(--primary-dark);
-  font-weight: 600;
+  color: #1e1e1e;
+  font-weight: 700;
   transition: all 0.3s ease;
 }
 
 .btn-warning:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
 }
 
 .btn-success {
   background: linear-gradient(135deg, var(--success-color), #059669);
   border: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  color: #fff;
+  font-weight: 700;
 }
 
 .btn-success:hover {
@@ -261,26 +261,26 @@ body {
   box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
 }
 
-/* Feedback */
+/* ✅ Feedback */
 .feedback-correto {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.15);
   border: 1px solid var(--success-color);
-  color: #d1fae5;
+  color: #bbf7d0;
   padding: 1rem;
   border-radius: 8px;
   animation: slideIn 0.5s ease;
 }
 
 .feedback-incorreto {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(239, 68, 68, 0.15);
   border: 1px solid var(--danger-color);
   color: #fecaca;
   padding: 1rem;
   border-radius: 8px;
-  animation: slideIn 0.5s ease;
+  animation: shake 0.5s ease-in-out;
 }
 
-/* Animações */
+/* 🎞️ Animações */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -298,31 +298,27 @@ body {
     transform: translateX(0);
   }
   25% {
-    transform: translateX(-5px);
+    transform: translateX(-4px);
   }
   75% {
-    transform: translateX(5px);
+    transform: translateX(4px);
   }
 }
 
-.shake {
-  animation: shake 0.5s ease-in-out;
-}
-
-/* Badges */
+/* 🏷️ Badges */
 .badge {
   font-weight: 600;
   padding: 0.5rem 1rem;
+  color: var(--primary-dark);
 }
 
-/* Scrollbar personalizada */
+/* 🖱️ Scrollbar */
 .palavras-coletadas::-webkit-scrollbar {
   width: 6px;
 }
 
 .palavras-coletadas::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .palavras-coletadas::-webkit-scrollbar-thumb {
@@ -330,12 +326,9 @@ body {
   border-radius: 3px;
 }
 
-/* Responsividade */
+/* 📱 Responsividade */
 @media (max-width: 768px) {
-  .pista-body {
-    padding: 1.5rem;
-  }
-
+  .pista-body,
   .localizacao-body {
     padding: 1.5rem;
   }
@@ -360,16 +353,13 @@ body {
     padding-right: 15px;
   }
 
-  .pista-body {
-    padding: 1rem;
-  }
-
+  .pista-body,
   .sidebar-body {
     padding: 1rem;
   }
 }
 
-/* Estados de validação */
+/* 🧾 Estados de validação */
 .is-valid {
   border-color: var(--success-color) !important;
 }
@@ -378,11 +368,11 @@ body {
   border-color: var(--danger-color) !important;
 }
 
-/* Utilitários de texto */
+/* 💡 Utilitários de texto */
 .lead {
   color: #e2e8f0 !important;
 }
 
 .text-muted {
-  color: #94a3b8 !important;
+  color: var(--text-muted) !important;
 }
