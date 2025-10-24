@@ -10,76 +10,16 @@
   // ======================================================
   // Frases finais — Bird Box Caça ao Tesouro (atualizado para 10 trilhas)
   const FRASES_FINAIS = {
-    1: [
-      "O FUTURO É TECNOLÓGICO",
-      "A INOVAÇÃO MOVE O MUNDO",
-      "A ÉTICA GUIA AS DECISÕES",
-      "O QUEIJO É A OPORTUNIDADE",
-      "A QUALIDADE NÃO TEM FIM",
-    ],
-    2: [
-      "A SATISFAÇÃO GERA LEALDADE",
-      "AS PESSOAS CERTAS FAZEM A DIFERENÇA",
-      "LÍDERES VEEM ALÉM",
-      "OS HERÓIS ESTÃO NA EQUIPE",
-      "SONHAR É NÃO DESISTIR",
-    ],
-    3: [
-      "ESCUTAR É A CHAVE DA INFLUÊNCIA",
-      "A FELICIDADE SE PRATICA",
-      "A CIÊNCIA TEM ROSTOS FEMININOS",
-      "O UNIVERSO RESPONDE AO FOCO",
-      "LIDERAR É SERVIR",
-    ],
-    4: [
-      "DEIXE IR PARA SEGUIR EM FRENTE",
-      "QUEM SE CONHECE NÃO SE ILUDE",
-      "ADAPTAR-SE É SOBREVIVER",
-      "CRESCER É ASSUMIR RESPONSABILIDADES",
-      "CIDADANIA É A FORÇA DO POVO",
-    ],
-    5: [
-      "CONHEÇA O INIMIGO PARA VENCER",
-      "ENSINE PARA TRANSFORMAR",
-      "APRENDER É REINVENTAR",
-      "A MODA É REFLEXO DO TEMPO",
-      "ESTILO É SER AUTÊNTICO",
-    ],
-    6: [
-      "A MODA E A ARTE SÃO UMA SÓ LINGUAGEM",
-      "REVER, PENSAR, NÃO ERRAR",
-      "A HISTÓRIA TAMBÉM SE CARREGA NO OMBRO",
-      "A ENERGIA MOVE O MUNDO INVISÍVEL",
-      "A CIÊNCIA COMEÇA NA OBSERVAÇÃO",
-    ],
-    7: [
-      "A QUÍMICA UNE O INVISÍVEL",
-      "O EQUILÍBRIO TRAZ SAÚDE",
-      "PLANEJAR É CONSTRUIR O FUTURO",
-      "A PROTEÇÃO VEM DA PREVENÇÃO",
-      "SEGURANÇA É O PRIMEIRO PASSO",
-    ],
-    8: [
-      "A TENSÃO MOVE O FLUXO",
-      "O CONDUTOR LEVA A ENERGIA",
-      "A CORRENTE É UMA SÓ",
-      "O RAIO ENCONTRA O CAMINHO DA TERRA",
-      "A LIGAÇÃO CORRETA FAZ A DIFERENÇA",
-    ],
-    9: [
-      "A POTÊNCIA TRANSFORMA A ENERGIA",
-      "A ANTENA OUVE O CÉU",
-      "A VELOCIDADE DEFINE O CORTE",
-      "O FREIO SALVA VIDAS",
-      "CUSTOS BEM DEFINIDOS GUIAM RESULTADOS",
-    ],
-    10: [
-      "GERENCIAR É CUIDAR DO TODO",
-      "CRIAR VALOR É SERVIR AO CLIENTE",
-      "O FUTURO É CONECTADO",
-      "O CONSUMO É UM ESPELHO DO SER",
-      "A INDÚSTRIA É ARTE EM MOVIMENTO",
-    ],
+    1: ["SEMANA", "DA", "BIBLIOTECA", "NO", "SENAI"],
+    2: ["BOX", "REVELA", "MEDO", "INTENSO"],
+    3: ["NA", "BIBLIOTECA", "ENCONTRO", "MEU", "REFÚGIO"],
+    4: ["LIVROS", "TRANSFORMAM", "MENTE", "E", "CORAÇÃO"],
+    5: ["SENAI", "CAPACITA", "PROFISSIONAIS", "PARA O", "FUTURO"],
+    6: ["BIRD", "BOX", "DESAFIA", "NOSSOS", "SENTIDOS"],
+    7: ["BIBLIOTECA", "GUARDA", "OS SEGREDOS", "DO", "CONHECIMENTO"],
+    8: ["LER", "LIVROS", "AMPLIA", "OS HORIZONTES", "PESSOAIS"],
+    9: ["SENAI", "ENSINA", "HABILIDADES", "COM", "EXCELÊNCIA"],
+    10: ["LIVROS", "DO", "SENAI", "INSPIRAM", "MENTES"], // Completei a última frase
   };
 
   let tempoInicio = null;
