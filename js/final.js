@@ -273,6 +273,12 @@
       localStorage.removeItem(`birdbox_palavras_${trilhaNumero}`);
       localStorage.removeItem(`birdbox_perguntas_${trilhaNumero}`);
     } catch {}
+
+    // HABILITAR BOTÃO DE COMPARTILHAR
+    const btnCompartilhar = document.getElementById("btnCompartilharConquista");
+    if (btnCompartilhar) {
+      btnCompartilhar.style.display = "block";
+    }
   }
 
   function salvarConquista(trilhaNumero) {
