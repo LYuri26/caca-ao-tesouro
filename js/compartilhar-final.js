@@ -328,7 +328,7 @@ Acabei de completar a Trilha ${this.trilhaNumero} do Bird Box Caça ao Tesouro!
     }
   }
 
-  // MÉTODOS DE COMPARTILHAMENTO CORRIGIDOS - ABRIR DIRETAMENTE A POSTAGEM
+  // MÉTODOS DE COMPARTILHAMENTO CORRIGIDOS - PARA CRIAR PUBLICAÇÃO DIRETAMENTE
   async shareToInstagram() {
     if (!this.shareImageUrl) {
       await this.generateShareImage();
@@ -339,27 +339,30 @@ Acabei de completar a Trilha ${this.trilhaNumero} do Bird Box Caça ao Tesouro!
       await this.downloadImageToGallery();
 
       if (this.isIOS()) {
-        // iOS - Instagram - Abre diretamente a câmera/upload
-        const instagramUrl = `instagram://camera`;
+        // iOS - Instagram Stories com a imagem
+        const instagramUrl = `instagram-stories://share?source_application=com.birdbox.game&backgroundImage=${encodeURIComponent(
+          this.shareImageUrl
+        )}`;
         window.location.href = instagramUrl;
 
-        // Instruções após abrir o Instagram
+        // Fallback para criar post normal após delay
         setTimeout(() => {
-          this.showInstagramInstructions();
+          if (!document.hidden) {
+            const fallbackUrl = `instagram://camera`;
+            window.location.href = fallbackUrl;
+            this.showInstagramInstructions();
+          }
         }, 2000);
       } else if (this.isAndroid()) {
-        // Android - Instagram - Tenta abrir o share sheet
-        const instagramUrl = `intent://share?text=${encodeURIComponent(
-          this.shareText
-        )}#Intent;package=com.instagram.android;scheme=instagram;action=android.intent.action.SEND;type=image/png;S.instagram.direct.shareef=fb_share_extension;end;`;
+        // Android - Instagram com intent de compartilhamento
+        const instagramUrl = `intent://com.instagram.share.add-to-stories/#Intent;package=com.instagram.android;scheme=instagram;end;`;
+        window.location.href = instagramUrl;
 
-        // Fallback para intent genérico
-        try {
-          window.location.href = instagramUrl;
-        } catch (e) {
-          // Se falhar, usa intent genérico do Android
-          this.shareViaAndroidIntent();
-        }
+        setTimeout(() => {
+          if (!document.hidden) {
+            this.shareViaAndroidIntent("com.instagram.android", "Instagram");
+          }
+        }, 1500);
       }
     } else {
       this.downloadImageWithInstructions("Instagram");
@@ -376,12 +379,12 @@ Acabei de completar a Trilha ${this.trilhaNumero} do Bird Box Caça ao Tesouro!
       await this.downloadImageToGallery();
 
       if (this.isIOS()) {
-        // iOS - TikTok - Abre diretamente a criação de conteúdo
-        const tiktokUrl = `snssdk1233://upload`;
+        // iOS - TikTok - Abre criação de conteúdo
+        const tiktokUrl = `snssdk1233://compose`;
         window.location.href = tiktokUrl;
       } else if (this.isAndroid()) {
-        // Android - TikTok
-        const tiktokUrl = `intent://upload/#Intent;package=com.zhiliaoapp.musically;scheme=snssdk1233;end;`;
+        // Android - TikTok - Abre criação
+        const tiktokUrl = `intent://compose/#Intent;package=com.zhiliaoapp.musically;scheme=snssdk1233;end;`;
         window.location.href = tiktokUrl;
       }
 
@@ -426,7 +429,7 @@ Acabei de completar a Trilha ${this.trilhaNumero} do Bird Box Caça ao Tesouro!
 
     if (this.isMobile) {
       if (this.isIOS()) {
-        // iOS Facebook - Abre composer
+        // iOS Facebook - Abre composer para publicação
         const facebookUrl = `fb://publish/?text=${text}`;
         window.location.href = facebookUrl;
       } else if (this.isAndroid()) {
@@ -475,7 +478,42 @@ Acabei de completar a Trilha ${this.trilhaNumero} do Bird Box Caça ao Tesouro!
     }
   }
 
-  // Método para baixar imagem para galeria (simulado)
+  // Compartilhamento nativo (se disponível)
+  async shareNative() {
+    if (navigator.share) {
+      try {
+        if (!this.shareImageUrl) {
+          await this.generateShareImage();
+        }
+
+        // Converter data URL para blob
+        const response = await fetch(this.shareImageUrl);
+        const blob = await response.blob();
+        const file = new File(
+          [blob],
+          `birdbox-conquista-trilha-${this.trilhaNumero}.png`,
+          {
+            type: "image/png",
+          }
+        );
+
+        await navigator.share({
+          title: "Bird Box Game - Conquista Completa!",
+          text: this.shareText,
+          files: [file],
+        });
+
+        console.log("✅ Compartilhamento nativo realizado");
+      } catch (error) {
+        console.log("❌ Compartilhamento nativo cancelado");
+        this.downloadImage();
+      }
+    } else {
+      this.downloadImage();
+    }
+  }
+
+  // Método para baixar imagem para galeria
   async downloadImageToGallery() {
     return new Promise((resolve) => {
       this.downloadImage();
@@ -485,34 +523,30 @@ Acabei de completar a Trilha ${this.trilhaNumero} do Bird Box Caça ao Tesouro!
   }
 
   // Compartilhamento via Intent do Android
-  shareViaAndroidIntent() {
-    // Cria um input file temporário para simular o compartilhamento
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    input.style.display = "none";
-
-    input.onchange = (e) => {
-      // Dispara o share sheet nativo do Android
+  shareViaAndroidIntent(packageName, appName) {
+    try {
+      // Tenta usar a Web Share API primeiro
       if (navigator.share) {
-        navigator.share({
-          title: "Bird Box Conquista",
-          text: this.shareText,
-          files: [e.target.files[0]],
-        });
+        this.shareNative();
+        return;
       }
-    };
 
-    document.body.appendChild(input);
-    input.click();
-    document.body.removeChild(input);
+      // Fallback para download + instruções
+      this.downloadImage();
+      setTimeout(() => {
+        this.showImageShareInstructions(appName);
+      }, 500);
+    } catch (error) {
+      console.error(`❌ Erro ao compartilhar no ${appName}:`, error);
+      this.downloadImage();
+      this.showImageShareInstructions(appName);
+    }
   }
 
   // Instruções específicas para Instagram
   showInstagramInstructions() {
     const message = `📸 Para postar no Instagram:\n\n1. A imagem foi salva na sua galeria\n2. Toque no ícone ➕ para criar novo post\n3. Selecione a imagem da galeria\n4. Ajuste o post e adicione:\n   #SemanaDaBibliotecaSENAIUberaba\n   #BirdBoxGame\n   #SENAIUberaba`;
 
-    // Mostra alerta após um delay para não interferir com a abertura do app
     setTimeout(() => {
       if (
         confirm(
@@ -522,14 +556,25 @@ Acabei de completar a Trilha ${this.trilhaNumero} do Bird Box Caça ao Tesouro!
       ) {
         this.showExtraHelp("Instagram");
       }
-    }, 3000);
+    }, 2000);
   }
 
   // Instruções específicas para TikTok
   showTikTokInstructions() {
     const message = `🎵 Para postar no TikTok:\n\n1. Abra o TikTok\n2. Toque em "+" para criar\n3. Selecione "Upload"\n4. Escolha a imagem da galeria\n5. Adicione as hashtags:\n   #SemanaDaBibliotecaSENAIUberaba\n   #BirdBoxGame\n   #SENAIUberaba`;
 
-    alert(message);
+    setTimeout(() => {
+      alert(message);
+    }, 1500);
+  }
+
+  // Instruções para compartilhar imagem
+  showImageShareInstructions(appName) {
+    const message = `📸 Para compartilhar no ${appName}:\n\n1. A imagem foi salva automaticamente\n2. Abra o ${appName}\n3. Crie um novo post\n4. Selecione a imagem da galeria\n5. Use as hashtags:\n   #SemanaDaBibliotecaSENAIUberaba\n   #BirdBoxGame\n   #SENAIUberaba`;
+
+    setTimeout(() => {
+      alert(message);
+    }, 500);
   }
 
   // Ajuda extra para encontrar a imagem
@@ -605,5 +650,9 @@ if (typeof window !== "undefined") {
 
   window.shareToWhatsApp = function () {
     finalShareManager.shareToWhatsApp();
+  };
+
+  window.shareNative = function () {
+    finalShareManager.shareNative();
   };
 }
