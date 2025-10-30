@@ -81,6 +81,7 @@ const TRILHAS = {
       pergunta:
         "No contexto organizacional, qual é o aspecto mais importante do seu comportamento dentro da organização?",
       respostaCorreta: [
+        "emocional",
         "inteligência emocional",
         "equilíbrio emocional",
         "consciência emocional",
@@ -92,6 +93,7 @@ const TRILHAS = {
         "competência emocional",
         "sabedoria emocional",
         "resiliência emocional",
+        "resiliência",
         "autoconhecimento emocional",
         "empatia aplicada",
         "habilidade socioemocional",
